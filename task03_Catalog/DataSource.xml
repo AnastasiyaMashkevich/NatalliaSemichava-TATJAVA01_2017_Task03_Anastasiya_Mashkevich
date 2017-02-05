@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <newsItem>
+        <category>movie</category>
+        <title>Meet_Joe</title>
+        <additionalInfo>directed by Martin Brest</additionalInfo>
+        <year>1998</year>
+    </newsItem>
+    <newsItem>
+        <category>movie</category>
+        <title>Meet_Joe_Black</title>
+        <additionalInfo>1 mln USD profit</additionalInfo>
+        <year>1997</year>
+    </newsItem>
+    <newsItem>
+        <category>book</category>
+        <title>Pride_and_Prejudice</title>
+        <additionalInfo>written by Jane Austen</additionalInfo>
+        <year>1999</year>
+    </newsItem>
+    <newsItem>
+        <category>book</category>
+        <title>The_Martian</title>
+        <additionalInfo>written by Andy Weir</additionalInfo>
+        <year>2014</year>
+    </newsItem>
+    <newsItem>
+        <category>disk</category>
+        <title>English_World</title>
+        <additionalInfo>publishing house Macmillan</additionalInfo>
+        <year>2009</year>
+    </newsItem>
+    <newsItem>
+        <category>disk</category>
+        <title>Russian_Language_with_the_Computer</title>
+        <additionalInfo>publishing house 1C-Publishing</additionalInfo>
+        <year>2016</year>
+    </newsItem>
+    <newsItem>
+        <category>book</category>
+        <title>The Old Man and the Sea</title>
+        <additionalInfo>written by Ernest Hemingway</additionalInfo>
+        <year>1951</year>
+    </newsItem>
+</catalog>
