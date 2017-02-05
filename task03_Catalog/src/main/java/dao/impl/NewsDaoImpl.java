@@ -58,7 +58,7 @@ public class NewsDaoImpl implements NewsDao {
     public Catalog getCatalog() {
         Catalog catalog;
         try {
-            File file = new File("DataSource.xml");
+            File file = new File("Catalog.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(Catalog.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             catalog=(Catalog) jaxbUnmarshaller.unmarshal(file);
@@ -71,7 +71,7 @@ public class NewsDaoImpl implements NewsDao {
 
     public void setCatalog(Catalog catalog) {
         try {
-            File file = new File("DataSource.xml");
+            File file = new File("Catalog.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(Catalog.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
