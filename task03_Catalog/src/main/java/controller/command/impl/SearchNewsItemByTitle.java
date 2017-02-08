@@ -18,8 +18,12 @@ public class SearchNewsItemByTitle implements Command {
         try {
             result = catalogService.searchNewsItemByTitle(title);
         } catch (ServiceException e) {
-            System.out.println("Search by title error");
+            System.out.println("Search by title error");// итак, у нас случилось исключение
+            // мы его перехватим, погасим.
         }
+        // а дольше начнем формировать ответ - так вот - это и был тот случай, когда Return в catch очень даже уместен
+        
+        // и позволит избежать дальнейшших ошибок при необходимости модифицировать код
         if (result != null && result.size() > 0) {
             response = "Result: \n";
             for (NewsItem item : result) {
