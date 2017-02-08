@@ -26,6 +26,8 @@ public class AddNewsItem implements Command {
                 return response;
             }
         } catch (IndexOutOfBoundsException | ServiceException e) {
+            // ну хоть бы уже System.err
+    
             System.out.println("Format of the data" + newItem + " is not correspond the pattern category/title/additionalInfo/year");
         }
         return "Not Added";

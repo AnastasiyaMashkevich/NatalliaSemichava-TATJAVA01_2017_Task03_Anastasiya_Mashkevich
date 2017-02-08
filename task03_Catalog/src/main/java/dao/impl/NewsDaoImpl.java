@@ -13,12 +13,14 @@ import java.util.ArrayList;
 
 
 public class NewsDaoImpl implements NewsDao {
-    Catalog catalog = getCatalog();
-    ArrayList<NewsItem> news = catalog.getNewsItem();
+    Catalog catalog = getCatalog();// не надо в разделяемых объектах так баловаться полями экземпляра класса
+    ArrayList<NewsItem> news = catalog.getNewsItem();// это очень грубая ошибка
 
+    // а как ты меня в коде заставишь вызвать getCatalog(название, кстати, неверное), перед addNewsItem?
     public void addNewsItem(NewsItem newItem)throws DAOException{
+        // о боже, вот вы сами захотите в этом операторе разлираться? я - нет
         if (newItem.getCategory().isEmpty()|newItem.getTitle().isEmpty()|newItem.getAdditionalInfo().isEmpty()|newItem.getYear().isEmpty()){
-            System.out.println("You can add all info about news.");
+            System.out.println("You can add all info about news.");// мы же проходили исключения, где ОНО, почему выводим на консоль в ДАО
         } else {
             news.add(newItem);
             catalog.setNewsItem(news);
@@ -45,12 +47,12 @@ public class NewsDaoImpl implements NewsDao {
         ArrayList <NewsItem> news = catalog.getNewsItem();
         ArrayList<NewsItem> newsResult = new ArrayList<NewsItem>();
         for (NewsItem newsItem : news) {
-            if (newsItem.getYear() != null && newsItem.getYear().equals(year)) {
+            if (newsItem.getYear() != null && newsItem.getYear().equals(year)) {// с какой стати ДАО проверает параметры?
                 newsResult.add(newsItem);
             }
         }
-        if (newsResult.isEmpty()) return null;
-       System.out.println("By year '" + year + "' was found: "+newsResult );
+        if (newsResult.isEmpty()) return null;// code convention где?
+       System.out.println("By year '" + year + "' was found: "+newsResult );//????
 
         return newsResult;
     }
@@ -64,7 +66,9 @@ public class NewsDaoImpl implements NewsDao {
             catalog=(Catalog) jaxbUnmarshaller.unmarshal(file);
             return catalog;
         } catch (JAXBException e) {
-            e.printStackTrace();
+            e.printStackTrace();// у нас произошел exception , но мы затихаримся, и никому ничего не скажем
+            // только тихонько на консоль выведем
+            // забудьте, что у вас есть консоль, пишите приложение так, будто вам данные на океан надо передавать
         }
         return null;
     }

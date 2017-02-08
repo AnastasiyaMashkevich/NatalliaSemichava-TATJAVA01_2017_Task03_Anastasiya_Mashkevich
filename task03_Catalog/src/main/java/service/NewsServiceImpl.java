@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class NewsServiceImpl implements CatalogService {
 
     public NewsItem addNewsItem(String category, String title, String additionalInfo, String year) throws ServiceException {
+        // а входные параметры КТО валидироват будет? Это же уже слой сервисов!
         try {
             DAOFactory daoObjectFactory = DAOFactory.getInstance();
             NewsDao newsDao = daoObjectFactory.getNewsDAO();
@@ -19,7 +20,9 @@ public class NewsServiceImpl implements CatalogService {
             newsDao.addNewsItem(newsItem);
             return newsItem;
         } catch (DAOException e) {
-            throw new ServiceException("Error! Was not added new news. ");
+            throw new ServiceException("Error! Was not added new news. ");// и чпециально обращала внимание, чтобы не теряли реальные исключения
+            // а их оборачивали
+            // все равно, упорно пишут антипаттерн
         }
     }
 
